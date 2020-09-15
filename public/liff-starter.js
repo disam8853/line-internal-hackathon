@@ -56,8 +56,41 @@ function initializeLiff(myLiffId) {
     .init({
       liffId: myLiffId,
     })
-    .then(() => {})
+    .then(() => {
+      // start to use LIFF's api
+      initializeApp()
+    })
     .catch((err) => {
       window.alert(err)
     })
+}
+
+/**
+ * Initialize the app by calling functions handling individual app components
+ */
+function initializeApp() {
+  registerButtonHandlers()
+}
+
+/**
+ * Register event handlers for the buttons displayed in the app
+ */
+function registerButtonHandlers() {
+  // closeWindow call
+  document.getElementById('submit').addEventListener('click', function () {
+    if (!liff.isInClient()) {
+      sendAlertIfNotInClient()
+    } else {
+      liff.closeWindow()
+    }
+  })
+}
+
+/**
+ * Alert the user if LIFF is opened in an external browser and unavailable buttons are tapped
+ */
+function sendAlertIfNotInClient() {
+  alert(
+    'This button is unavailable as LIFF is currently being opened in an external browser.'
+  )
 }
