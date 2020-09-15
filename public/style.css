@@ -88,8 +88,8 @@ button {
   flex-basis: 33.333%;
   flex-grow: 0;
   flex-shrink: 0;
-  margin-right: 20px;
-  margin-left: 20px;
+  margin-right: 10px;
+  margin-left: 10px;
 }
 
 .card-image {
@@ -98,4 +98,8 @@ button {
 
 .card .card-image img {
   display: initial;
+}
+
+.card .card-content {
+  padding: 10px;
 }
