@@ -44,3 +44,7 @@ ul.stepper .step .step-content {
 .card .card-content {
   padding: 10px;
 }
+
+ul.stepper .step:not(:last-of-type).active {
+  padding-bottom: 15px;
+}
