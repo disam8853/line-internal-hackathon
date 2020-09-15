@@ -1,69 +1,101 @@
 html {
-    font-size: 11px;
+  font-size: 11px;
 }
 
 table {
-    width: 100%;
-    table-layout: fixed;
-    word-break: break-all;
+  width: 100%;
+  table-layout: fixed;
+  word-break: break-all;
 }
 
 div {
-    max-width: 100%;
-    text-align: center;
+  max-width: 100%;
+  text-align: center;
 }
 
 th {
-    text-align: center;
+  text-align: center;
 }
 
-table, th, td {
-    border: 1px solid black;
+table,
+th,
+td {
+  border: 1px solid black;
 }
 
-img { 
-    max-width: 25%; 
-    height: auto; 
+img {
+  max-width: 25%;
+  height: auto;
 }
 
 button {
-    margin: 4px;
+  margin: 4px;
 }
 
 #code-block {
-    background-color: #eee;
-    border: 1px solid #999;
-    display: block;
-    padding: 20px;
-    width: 50%;
-    margin-left: auto;
-    margin-right: auto;
-    overflow-x: auto;
-    white-space: nowrap;
+  background-color: #eee;
+  border: 1px solid #999;
+  display: block;
+  padding: 20px;
+  width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
 #profilePictureDiv {
-    text-align: center;
+  text-align: center;
 }
 
 #profileImageDiv {
-    height: 100px;
-    width: 100px;
+  height: 100px;
+  width: 100px;
 }
 
 #statusMessage {
-    position: relative;
-    top: 40px;
+  position: relative;
+  top: 40px;
 }
 
 .textLeft {
-    text-align: left;
+  text-align: left;
 }
 
 .buttonGroup {
-    padding-top: 20px;
+  padding-top: 20px;
 }
 
 .hidden {
-    display: none;
+  display: none;
+}
+
+.step-title {
+  text-align: left;
+}
+
+.card-row {
+  align-items: stretch;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  overflow-x: auto;
+  overflow-y: hidden;
+}
+
+.card {
+  max-width: 250px;
+  flex-basis: 33.333%;
+  flex-grow: 0;
+  flex-shrink: 0;
+  margin-right: 20px;
+  margin-left: 20px;
+}
+
+.card-image {
+  text-align: center;
+}
+
+.card .card-image img {
+  display: initial;
 }
