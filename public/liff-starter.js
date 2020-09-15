@@ -78,9 +78,7 @@ function initializeApp() {
 function registerButtonHandlers() {
   // closeWindow call
   document.getElementById('submit').addEventListener('click', function () {
-    if (!liff.isInClient()) {
-      sendAlertIfNotInClient()
-    } else {
+    if (liff.isInClient()) {
       liff.closeWindow()
     }
   })
