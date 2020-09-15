@@ -11,6 +11,10 @@ html {
   text-align: left;
 }
 
+ul.stepper .step .step-content {
+  margin-right: 0;
+}
+
 .card-row {
   align-items: stretch;
   display: flex;
