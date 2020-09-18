@@ -3,6 +3,16 @@ html {
   margin: 0;
 }
 
+.btn,
+.btn-large,
+.btn-small {
+  background-color: #20c962;
+}
+
+.btn:hover {
+  background-color: #20c962 !important;
+}
+
 .text-center {
   text-align: center;
 }
@@ -31,6 +41,7 @@ ul.stepper .step .step-content {
   flex-shrink: 0;
   margin-right: 10px;
   margin-left: 10px;
+  position: relative;
 }
 
 .card-image {
@@ -43,6 +54,34 @@ ul.stepper .step .step-content {
 
 .card .card-content {
   padding: 10px;
+}
+
+.card-skip {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 3rem;
+}
+
+.select {
+  border: 2px solid #20c962;
+}
+
+.select::before {
+  content: '\e5ca';
+  font-size: 16px;
+  font-family: 'Material Icons';
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  background-color: #20c962;
+  color: white;
+  width: 30px;
+  height: 30px;
+  padding-left: 4px;
+  border-radius: 0 0 100% 0;
+  z-index: 1;
 }
 
 ul.stepper .step:not(:last-of-type).active {
