@@ -81,6 +81,21 @@ function initializeLiff(myLiffId) {
  */
 function initializeApp() {
   registerButtonHandlers()
+
+  // check if the user is logged in/out, and disable inappropriate button
+  if (liff.isLoggedIn()) {
+    // get profile and show
+    liff
+      .getProfile()
+      .then(function (profile) {
+        const text = 'Hi, ' + profile.displayName + '{' + profile.userId + '}.'
+        document.getElementById('profile').textContent = text
+      })
+      .catch(function (error) {
+        window.alert('Error getting profile: ' + error)
+      })
+  } else {
+  }
 }
 
 /**
