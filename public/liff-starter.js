@@ -19,27 +19,35 @@ window.onload = function () {
       initializeLiffOrDie(myLiffId)
     })
     .catch(function (error) {
-      document.getElementById('liffAppContent').classList.add('hidden')
-      document
-        .getElementById('nodeLiffIdErrorMessage')
-        .classList.remove('hidden')
+      console.log(error)
     })
 }
 
 function cardEventListener() {
-  // const card_row = document.getElementsByClassName('card-row')
-  // for (let i = 0; i < card_row.length; i++) {
+  for (let i = 0; i < 5; i++) {
+    const cards = document.querySelectorAll(
+      '.step:nth-child(' + (i + 1) + ') .card'
+    )
+    for (let j = 0; j < cards.length; j++) {
+      cards[j].addEventListener('click', (e) => {
+        // unselect all other cards in same row
+        for (let k = 0; k < cards.length; k++) {
+          if (k !== j) {
+            cards[k].classList.remove('select')
+          }
+        }
+        // select target card
+        cards[j].classList.add('select')
+      })
+    }
+  }
+
+  // const cards = document.getElementsByClassName('card')
+  // for (let i = 0; i < cards.length; i++) {
   //   cards[i].addEventListener('click', (e) => {
   //     cards[i].classList.add('select')
   //   })
   // }
-
-  const cards = document.getElementsByClassName('card')
-  for (let i = 0; i < cards.length; i++) {
-    cards[i].addEventListener('click', (e) => {
-      cards[i].classList.add('select')
-    })
-  }
 }
 
 /**
