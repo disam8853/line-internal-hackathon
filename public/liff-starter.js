@@ -88,7 +88,7 @@ function initializeApp() {
     liff
       .getProfile()
       .then(function (profile) {
-        const text = 'Hi, ' + profile.displayName + '{' + profile.userId + '}.'
+        const text = profile.displayName + '，早安！{' + profile.userId + '}'
         document.getElementById('profile').textContent = text
       })
       .catch(function (error) {

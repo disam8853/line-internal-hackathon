@@ -3,6 +3,10 @@ html {
   margin: 0;
 }
 
+.d-inline {
+  display: inline;
+}
+
 .btn,
 .btn-large,
 .btn-small {
@@ -15,6 +19,16 @@ html {
 
 .text-center {
   text-align: center;
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+}
+
+.navbar span {
+  line-height: 36px;
+  font-size: 1.25rem;
 }
 
 .step-title {
