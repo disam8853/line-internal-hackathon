@@ -3,10 +3,6 @@ html {
   margin: 0;
 }
 
-.d-none {
-  display: none;
-}
-
 .btn,
 .btn-large,
 .btn-small {
@@ -91,4 +87,18 @@ ul.stepper .step .step-content {
 
 ul.stepper .step:not(:last-of-type).active {
   padding-bottom: 15px;
+}
+
+/* modal */
+.modal-title {
+  font-size: 2.5rem;
+  margin-bottom: 30px;
+}
+
+.modal-trigger.btn-grey {
+  background-color: #757575 !important;
+}
+
+.modal-trigger.btn-grey:hover {
+  background-color: #616161 !important;
 }

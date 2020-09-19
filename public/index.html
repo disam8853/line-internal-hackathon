@@ -26,7 +26,36 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
+    <!-- Modal Structure -->
+    <div id="modal1" class="modal">
+      <div class="modal-content">
+        <div class="modal-title">問題回報</div>
+        <div class="input-field">
+          <textarea id="textarea1" class="materialize-textarea"></textarea>
+          <label for="textarea1">輸入您的問題</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-green btn-flat">
+          提交
+        </a>
+      </div>
+    </div>
+
     <div class="container">
+      <div class="row">
+        <div class="col s10"></div>
+        <div class="col s2 right-align">
+          <!-- Modal Trigger -->
+          <a
+            class="waves-effect waves-light btn modal-trigger btn-grey"
+            href="#modal1"
+          >
+            問題回報
+          </a>
+        </div>
+      </div>
+
       <ul class="stepper linear">
         <li class="step active">
           <div class="step-title waves-effect">星期一 9/21</div>

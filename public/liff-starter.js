@@ -1,4 +1,7 @@
 window.onload = function () {
+  const elems = document.querySelectorAll('.modal')
+  const instances = M.Modal.init(elems)
+
   cardEventListener()
 
   let stepper = document.querySelector('.stepper')
