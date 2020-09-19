@@ -3,6 +3,10 @@ html {
   margin: 0;
 }
 
+.d-none {
+  display: none;
+}
+
 .btn,
 .btn-large,
 .btn-small {
@@ -42,6 +46,7 @@ ul.stepper .step .step-content {
   margin-right: 10px;
   margin-left: 10px;
   position: relative;
+  border: 2px solid rgba(0, 0, 0, 0);
 }
 
 .card-image {

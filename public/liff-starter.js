@@ -41,13 +41,6 @@ function cardEventListener() {
       })
     }
   }
-
-  // const cards = document.getElementsByClassName('card')
-  // for (let i = 0; i < cards.length; i++) {
-  //   cards[i].addEventListener('click', (e) => {
-  //     cards[i].classList.add('select')
-  //   })
-  // }
 }
 
 /**
@@ -56,8 +49,7 @@ function cardEventListener() {
  */
 function initializeLiffOrDie(myLiffId) {
   if (!myLiffId) {
-    document.getElementById('liffAppContent').classList.add('hidden')
-    document.getElementById('liffIdErrorMessage').classList.remove('hidden')
+    window.alert('LIFF ID is not found')
   } else {
     initializeLiff(myLiffId)
   }
