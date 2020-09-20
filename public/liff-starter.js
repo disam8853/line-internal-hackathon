@@ -84,6 +84,8 @@ function initializeApp() {
 
   // check if the user is logged in/out, and disable inappropriate button
   if (liff.isLoggedIn()) {
+    document.getElementById('loginBtn').classList.add('hide')
+
     // get profile and show
     liff
       .getProfile()
@@ -106,6 +108,12 @@ function registerButtonHandlers() {
   document.getElementById('submit').addEventListener('click', function () {
     if (liff.isInClient()) {
       liff.closeWindow()
+    }
+  })
+  // login call, only when external browser is used
+  document.getElementById('loginBtn').addEventListener('click', function () {
+    if (!liff.isLoggedIn()) {
+      liff.login()
     }
   })
 }
