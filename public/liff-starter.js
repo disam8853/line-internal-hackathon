@@ -27,6 +27,7 @@ window.onload = function () {
 }
 
 function cardEventListener() {
+  var data = [0, 0, 0, 0, 0]
   for (let i = 0; i < 5; i++) {
     const cards = document.querySelectorAll(
       '.step:nth-child(' + (i + 1) + ') .card'
@@ -41,6 +42,8 @@ function cardEventListener() {
         }
         // select target card
         cards[j].classList.add('select')
+        data[i] = j
+        console.log(data)
       })
     }
   }
@@ -84,8 +87,6 @@ function initializeApp() {
 
   // check if the user is logged in/out, and disable inappropriate button
   if (liff.isLoggedIn()) {
-    document.getElementById('loginBtn').classList.add('hide')
-
     // get profile and show
     liff
       .getProfile()
@@ -97,6 +98,7 @@ function initializeApp() {
         window.alert('Error getting profile: ' + error)
       })
   } else {
+    document.getElementById('loginBtn').classList.remove('hide')
   }
 }
 

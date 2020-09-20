@@ -46,7 +46,7 @@
       <div class="navbar">
         <div>
           <span id="profile"></span>
-          <a id="loginBtn" class="waves-effect waves-light btn">Login</a>
+          <a id="loginBtn" class="waves-effect waves-light btn hide">Login</a>
         </div>
         <!-- Modal Trigger -->
         <a
@@ -501,12 +501,33 @@
             </div>
 
             <div class="step-actions">
-              <button id="submit" class="waves-effect waves-dark btn next-step">
+              <a
+                href="#modal2"
+                class="waves-effect waves-dark btn next-step modal-trigger"
+              >
                 提交
-              </button>
+              </a>
               <button class="waves-effect waves-dark btn-flat previous-step">
                 上一天
               </button>
+            </div>
+
+            <div id="modal2" class="modal">
+              <div class="modal-content">
+                <h4>請確認您的餐點</h4>
+                <p></p>
+              </div>
+              <div class="modal-footer">
+                <a
+                  href="#!"
+                  class="modal-close waves-effect waves-dark btn-flat"
+                >
+                  重新修改
+                </a>
+                <button id="submit" class="waves-effect waves-dark btn">
+                  確認
+                </button>
+              </div>
             </div>
           </div>
         </li>
