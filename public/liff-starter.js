@@ -6,8 +6,7 @@ window.onload = function () {
   M.Modal.getInstance(modals[2]).open()
 
   checkQueries()
-
-  cardEventListener()
+  eventListener()
 
   let stepper = document.querySelector('.stepper')
   let stepperInstace = new MStepper(stepper, {
@@ -35,6 +34,41 @@ function checkQueries() {
     const instances = M.Modal.getInstance(modals[0])
     instances.open()
   }
+}
+
+function eventListener() {
+  cardEventListener()
+  checkEmployeeListener()
+}
+
+function authenticate(eid) {
+  if (eid.length === 7 && eid.startsWith('LW') && !isNaN(eid.substring(2))) {
+    return true
+  } else {
+    return false
+  }
+}
+
+function checkEmployeeListener() {
+  document.getElementById('eid').addEventListener('input', function (e) {
+    // check employee identity
+    if (authenticate(e.target.value)) {
+      console.log(e.target.value)
+      document.getElementById('eid').classList.remove('invalid')
+      document.getElementById('eid').classList.add('valid')
+      document.getElementById('checkEidSubmit').classList.remove('disabled')
+    } else {
+      document.getElementById('eid').classList.remove('valid')
+      document.getElementById('eid').classList.add('invalid')
+    }
+  })
+
+  document
+    .getElementById('checkEidSubmit')
+    .addEventListener('click', function () {
+      // check employee identity
+      M.Modal.getInstance(modals[2]).close()
+    })
 }
 
 function cardEventListener() {
