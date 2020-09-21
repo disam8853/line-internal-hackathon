@@ -62,6 +62,7 @@ function checkEmployeeListener() {
     } else {
       document.getElementById('eid').classList.remove('valid')
       document.getElementById('eid').classList.add('invalid')
+      document.getElementById('checkEidSubmit').classList.add('disabled')
     }
   })
 
