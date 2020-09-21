@@ -62,6 +62,10 @@
           <input id="eid" type="text" class="validate" maxlength="7" />
           <label for="eid">員工編號(LWXXXXX)</label>
         </div>
+        <div id="lineLogin" class="hide">
+          <div class="modal-title">請登入您的LINE帳號</div>
+          <a id="loginBtn" class="waves-effect waves-light btn hide">Login</a>
+        </div>
       </div>
       <div class="modal-footer">
         <a
@@ -76,10 +80,7 @@
 
     <div class="container">
       <div class="navbar">
-        <div>
-          <span id="profile"></span>
-          <a id="loginBtn" class="waves-effect waves-light btn hide">Login</a>
-        </div>
+        <span id="profile"></span>
         <!-- Modal Trigger -->
         <a
           class="waves-effect waves-light btn modal-trigger btn-grey"

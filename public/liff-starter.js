@@ -130,8 +130,11 @@ function initializeLiff(myLiffId) {
 function initializeApp() {
   registerButtonHandlers()
 
-  // check if the user is logged in/out, and disable inappropriate button
+  if (!liff.isInClient() && !liff.isLoggedIn()) {
+    document.getElementById('lineLogin').classList.remove('hide')
+  }
   if (liff.isLoggedIn()) {
+    // check if the user is logged in/out, and disable inappropriate button
     // get profile and show
     liff
       .getProfile()

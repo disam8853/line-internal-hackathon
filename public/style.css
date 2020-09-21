@@ -116,3 +116,8 @@ ul.stepper .step:not(:last-of-type).active {
 .modal-trigger.btn-grey:hover {
   background-color: #616161 !important;
 }
+
+ul.stepper .step.active::before,
+ul.stepper .step.done::before {
+  background-color: #20c962;
+}
