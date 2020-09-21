@@ -56,7 +56,9 @@ function checkEmployeeListener() {
       console.log(e.target.value)
       document.getElementById('eid').classList.remove('invalid')
       document.getElementById('eid').classList.add('valid')
-      document.getElementById('checkEidSubmit').classList.remove('disabled')
+      if (liff.isLoggedIn()) {
+        document.getElementById('checkEidSubmit').classList.remove('disabled')
+      }
     } else {
       document.getElementById('eid').classList.remove('valid')
       document.getElementById('eid').classList.add('invalid')
