@@ -26,7 +26,6 @@
     <link rel="stylesheet" href="style.css" />
   </head>
   <body>
-    <!-- Modal Structure -->
     <div id="modal1" class="modal">
       <div class="modal-content">
         <div class="modal-title">問題回報</div>
@@ -39,6 +38,32 @@
         <a href="#!" class="modal-close waves-effect waves-green btn-flat">
           提交
         </a>
+      </div>
+    </div>
+
+    <div id="modal2" class="modal">
+      <div class="modal-content">
+        <div class="modal-title">請確認您的餐點</div>
+        <p></p>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-dark btn-flat">
+          重新修改
+        </a>
+        <a href="#!" id="submit" class="waves-effect waves-dark btn"> 確認 </a>
+      </div>
+    </div>
+
+    <div id="modal3" class="modal">
+      <div class="modal-content">
+        <div class="modal-title">請輸入您的員工編號</div>
+        <div class="input-field">
+          <input id="eid" type="text" class="validate" maxlength="7" />
+          <label for="eid">員工編號(LWXXXXX)</label>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <a href="#!" class="modal-close waves-effect waves-dark btn"> 確認 </a>
       </div>
     </div>
 
@@ -503,31 +528,13 @@
             <div class="step-actions">
               <a
                 href="#modal2"
-                class="waves-effect waves-dark btn next-step modal-trigger"
+                class="waves-effect waves-dark btn modal-trigger"
               >
                 提交
               </a>
               <button class="waves-effect waves-dark btn-flat previous-step">
                 上一天
               </button>
-            </div>
-
-            <div id="modal2" class="modal">
-              <div class="modal-content">
-                <h4>請確認您的餐點</h4>
-                <p></p>
-              </div>
-              <div class="modal-footer">
-                <a
-                  href="#!"
-                  class="modal-close waves-effect waves-dark btn-flat"
-                >
-                  重新修改
-                </a>
-                <button id="submit" class="waves-effect waves-dark btn">
-                  確認
-                </button>
-              </div>
             </div>
           </div>
         </li>

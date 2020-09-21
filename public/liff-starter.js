@@ -1,6 +1,11 @@
+var modals = document.querySelectorAll('.modal')
+
 window.onload = function () {
-  const elems = document.querySelectorAll('.modal')
-  const instances = M.Modal.init(elems)
+  M.AutoInit()
+  // open modal to enter employee id
+  M.Modal.getInstance(modals[2]).open()
+
+  checkQueries()
 
   cardEventListener()
 
@@ -10,20 +15,26 @@ window.onload = function () {
     firstActive: 0, // this is the default
   })
 
-  // DO NOT CHANGE THIS
-  let myLiffId = ''
-
   fetch('/send-id')
     .then(function (reqResponse) {
       return reqResponse.json()
     })
     .then(function (jsonResponse) {
-      myLiffId = jsonResponse.id
+      const myLiffId = jsonResponse.id
       initializeLiffOrDie(myLiffId)
     })
     .catch(function (error) {
       console.log(error)
     })
+}
+
+function checkQueries() {
+  const url = new URL(window.location.href)
+  const qu = url.searchParams.get('qu')
+  if (qu === 'true') {
+    const instances = M.Modal.getInstance(modals[0])
+    instances.open()
+  }
 }
 
 function cardEventListener() {
@@ -91,7 +102,8 @@ function initializeApp() {
     liff
       .getProfile()
       .then(function (profile) {
-        const text = profile.displayName + '，早安！{' + profile.userId + '}'
+        const text = profile.displayName + '，早安！'
+        alert('userId = ' + profile.userId)
         document.getElementById('profile').textContent = text
       })
       .catch(function (error) {
