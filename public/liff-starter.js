@@ -1,5 +1,6 @@
 var modals = document.querySelectorAll('.modal')
 var EID = ''
+var LUID = ''
 var data = [0, 0, 0, 0, 0]
 
 var api_url = 'https://7baf46d5ba50.ap.ngrok.io'
@@ -186,7 +187,7 @@ function checkEmployeeListener() {
     if (authenticate(e.target.value)) {
       document.getElementById('eid').classList.remove('invalid')
       document.getElementById('eid').classList.add('valid')
-      if (liff.isLoggedIn()) {
+      if (liff.isLoggedIn() && LUID !== '') {
         document.getElementById('checkEidSubmit').classList.remove('disabled')
       }
     } else {
@@ -201,7 +202,28 @@ function checkEmployeeListener() {
     .addEventListener('click', function () {
       // check employee identity
       EID = document.getElementById('eid').value
+
       // POST eid and luid
+      const post_data = {
+        emp_id: EID,
+        line_uid: LUID,
+      }
+      console.log(JSON.stringify(post_data))
+      fetch(api_url + '/api/v1/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(post_data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Success:', data)
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+
       M.Modal.getInstance(modals[2]).close()
     })
 }
@@ -275,6 +297,7 @@ function initializeApp() {
       .then(function (profile) {
         const text = profile.displayName + '，早安！'
         alert('userId = ' + profile.userId)
+        LUID = profile.userId
         document.getElementById('profile').textContent = text
       })
       .catch(function (error) {
