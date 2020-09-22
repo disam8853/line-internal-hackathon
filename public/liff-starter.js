@@ -209,7 +209,7 @@ function checkEmployeeListener() {
         line_uid: LUID,
       }
       console.log(JSON.stringify(post_data))
-      fetch(api_url + '/api/v1/order', {
+      fetch(api_url + '/api/v1/employee', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
