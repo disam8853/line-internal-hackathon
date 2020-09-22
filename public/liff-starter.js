@@ -187,12 +187,24 @@ function checkEmployeeListener() {
     if (authenticate(e.target.value)) {
       document.getElementById('eid').classList.remove('invalid')
       document.getElementById('eid').classList.add('valid')
+    } else {
+      document.getElementById('eid').classList.remove('valid')
+      document.getElementById('eid').classList.add('invalid')
+      document.getElementById('checkEidSubmit').classList.add('disabled')
+    }
+  })
+
+  document.getElementById('eid2').addEventListener('input', function (e) {
+    // check employee identity
+    if (e.target.value === document.getElementById('eid').value) {
+      document.getElementById('eid2').classList.remove('invalid')
+      document.getElementById('eid2').classList.add('valid')
       if (liff.isLoggedIn() && LUID !== '') {
         document.getElementById('checkEidSubmit').classList.remove('disabled')
       }
     } else {
-      document.getElementById('eid').classList.remove('valid')
-      document.getElementById('eid').classList.add('invalid')
+      document.getElementById('eid2').classList.remove('valid')
+      document.getElementById('eid2').classList.add('invalid')
       document.getElementById('checkEidSubmit').classList.add('disabled')
     }
   })
