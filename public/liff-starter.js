@@ -154,6 +154,7 @@ function eventListener() {
       emp_id: EID,
       food_ids: data,
     }
+    console.log(JSON.stringify(post_data))
     fetch(api_url + '/api/v1/order', {
       method: 'POST',
       headers: {
