@@ -150,7 +150,7 @@ function eventListener() {
   checkEmployeeListener()
 
   document.getElementById('submit').addEventListener('click', () => {
-    post_data = {
+    const post_data = {
       emp_id: EID,
       food_ids: data,
     }
