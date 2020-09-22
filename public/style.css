@@ -50,6 +50,7 @@ ul.stepper .step .step-content {
 
 .card {
   max-width: 250px;
+  min-width: 110px;
   flex-basis: 33.333%;
   flex-grow: 0;
   flex-shrink: 0;
