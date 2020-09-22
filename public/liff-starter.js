@@ -123,7 +123,7 @@ function handleMenuData(menu) {
       new_skip_btn.href = '#modal2'
       new_skip_btn.className =
         'waves-effect waves-dark btn-flat modal-trigger grey lighten-3'
-      new_skip_btn.innerHTML = '略過'
+      new_skip_btn.innerHTML = '略過並提交'
       new_step_actions.appendChild(new_skip_btn)
     }
 
