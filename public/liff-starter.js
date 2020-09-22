@@ -143,7 +143,7 @@ function initializeApp() {
       .getProfile()
       .then(function (profile) {
         const text = profile.displayName + '，早安！'
-        alert('userId = ' + profile.userId)
+        // alert('userId = ' + profile.userId)
         document.getElementById('profile').textContent = text
       })
       .catch(function (error) {
