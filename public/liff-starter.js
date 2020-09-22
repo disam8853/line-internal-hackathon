@@ -114,7 +114,7 @@ function handleMenuData(menu) {
     } else {
       const new_btn = document.createElement('a')
       new_btn.href = '#modal2'
-      new_btn.className = 'waves-effect waves-dark btn next-step'
+      new_btn.className = 'waves-effect waves-dark btn modal-trigger'
       new_btn.innerHTML = '提交'
       new_step_actions.appendChild(new_btn)
 
