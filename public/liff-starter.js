@@ -1,6 +1,6 @@
 var modals = document.querySelectorAll('.modal')
 var EID = ''
-var data = [1, 1, 1, 1, 1]
+var data = [0, 0, 0, 0, 0]
 
 var api_url = 'https://7baf46d5ba50.ap.ngrok.io'
 
@@ -152,7 +152,7 @@ function eventListener() {
   document.getElementById('submit').addEventListener('click', () => {
     const post_data = {
       emp_id: EID,
-      food_ids: data,
+      food_ids: data.filter((e) => e !== 0),
     }
     console.log(JSON.stringify(post_data))
     fetch(api_url + '/api/v1/order', {
