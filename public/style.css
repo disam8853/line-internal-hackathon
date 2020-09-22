@@ -121,3 +121,7 @@ ul.stepper .step.active::before,
 ul.stepper .step.done::before {
   background-color: #20c962;
 }
+
+ul.stepper .step .step-content .step-actions {
+  justify-content: center;
+}
