@@ -221,7 +221,7 @@ function cardEventListener() {
         }
         // select target card
         cards[j].classList.add('select')
-        data[i] = cards[j].getAttribute('data-id')
+        data[i] = parseInt(cards[j].getAttribute('data-id'))
         console.log(data)
       })
     }
