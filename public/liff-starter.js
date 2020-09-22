@@ -1,6 +1,7 @@
 var modals = document.querySelectorAll('.modal')
 
-var api_url = 'http://localhost:8080/api/v1'
+var api_url =
+  'https://7baf46d5ba50.ap.ngrok.io/api/v1/foods?start=2020-09-21&end=2020-09-25'
 var menu_data = {
   '2020-09-21': [
     {
@@ -200,15 +201,9 @@ window.onload = function () {
   M.Modal.getInstance(modals[2]).open()
 
   checkQueries()
-  // fetchMenuData()
-  handleMenuData()
+  fetchMenuData()
+  // handleMenuData()
   eventListener()
-
-  let stepper = document.querySelector('.stepper')
-  let stepperInstace = new MStepper(stepper, {
-    // options
-    firstActive: 0, // this is the default
-  })
 
   fetch('/send-id')
     .then(function (reqResponse) {
@@ -235,7 +230,6 @@ function fetchMenuData() {
 }
 
 function handleMenuData(menu) {
-  menu = menu_data
   date = Object.keys(menu)
 
   date.map((d, idx) => {
@@ -245,7 +239,7 @@ function handleMenuData(menu) {
 
     const new_step_title = document.createElement('div')
     new_step_title.className = 'step-title waves-effect'
-    new_step_title.innerHTML = new Date(date[0]).toDateString()
+    new_step_title.innerHTML = new Date(d).toDateString()
 
     new_step_li.appendChild(new_step_title)
 
@@ -258,6 +252,7 @@ function handleMenuData(menu) {
     menu[d].map((meal) => {
       const new_card = document.createElement('div')
       new_card.className = 'card'
+      new_card.setAttribute('data-id', meal.id)
 
       const new_card_image = document.createElement('div')
       new_card_image.className = 'card-image'
@@ -327,6 +322,9 @@ function handleMenuData(menu) {
 
     document.getElementsByClassName('stepper')[0].appendChild(new_step_li)
   })
+  let stepper = document.querySelector('.stepper')
+  let stepperInstace = new MStepper(stepper)
+  cardEventListener()
 }
 
 function checkQueries() {
@@ -339,7 +337,6 @@ function checkQueries() {
 }
 
 function eventListener() {
-  cardEventListener()
   checkEmployeeListener()
 }
 
@@ -392,7 +389,7 @@ function cardEventListener() {
         }
         // select target card
         cards[j].classList.add('select')
-        data[i] = j
+        data[i] = cards[j].getAttribute('data-id')
         console.log(data)
       })
     }
