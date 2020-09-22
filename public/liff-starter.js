@@ -1,6 +1,6 @@
 var modals = document.querySelectorAll('.modal')
 var EID = ''
-var data = [0, 0, 0, 0, 0]
+var data = [1, 1, 1, 1, 1]
 
 var api_url = 'https://7baf46d5ba50.ap.ngrok.io'
 
@@ -27,7 +27,9 @@ window.onload = function () {
 }
 
 function fetchMenuData() {
-  fetch(api_url + '/api/v1/foods?start=2020-09-21&end=2020-09-25')
+  fetch(api_url + '/api/v1/foods?start=2020-09-21&end=2020-09-25', {
+    mode: 'cors',
+  })
     .then((res) => {
       return res.json()
     })
@@ -146,6 +148,27 @@ function checkQueries() {
 
 function eventListener() {
   checkEmployeeListener()
+
+  document.getElementById('submit').addEventListener('click', () => {
+    post_data = {
+      emp_id: EID,
+      food_ids: data,
+    }
+    fetch(api_url + '/api/v1/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(post_data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('Success:', data)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  })
 }
 
 function authenticate(eid) {
@@ -180,27 +203,6 @@ function checkEmployeeListener() {
       // POST eid and luid
       M.Modal.getInstance(modals[2]).close()
     })
-
-  document.getElementById('submit').addEventListener('click', () => {
-    post_data = {
-      emp_id: EID,
-      food_ids: data,
-    }
-    fetch(api_url + '/api/v1/order', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(post_data),
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log('Success:', data)
-      })
-      .catch((error) => {
-        console.error('Error:', error)
-      })
-  })
 }
 
 function cardEventListener() {
