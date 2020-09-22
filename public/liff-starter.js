@@ -44,13 +44,21 @@ function handleMenuData(menu) {
   date = Object.keys(menu)
 
   date.map((d, idx) => {
-    console.log(d)
+    const day = new Date(d).toDateString()
+
+    const tbody = document.getElementById('verify-tbody')
+    const newRow = tbody.insertRow(-1)
+    const newCell = newRow.insertCell(-1)
+    const newText = document.createTextNode(day)
+    newCell.appendChild(newText)
+
+    // console.log(d)
     const new_step_li = document.createElement('li')
     new_step_li.className = 'step'
 
     const new_step_title = document.createElement('div')
     new_step_title.className = 'step-title waves-effect'
-    new_step_title.innerHTML = new Date(d).toDateString()
+    new_step_title.innerHTML = day
 
     new_step_li.appendChild(new_step_title)
 
@@ -247,6 +255,7 @@ function cardEventListener() {
     )
     for (let j = 0; j < cards.length; j++) {
       cards[j].addEventListener('click', (e) => {
+        // undisabled next-step button
         cards[j].parentElement.nextSibling
           .querySelector('.waves-effect.waves-dark.btn')
           .classList.remove('disabled')
