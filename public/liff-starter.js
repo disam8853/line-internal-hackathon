@@ -103,7 +103,7 @@ function handleMenuData(menu) {
 
     if (idx < date.length - 1) {
       const new_btn = document.createElement('button')
-      new_btn.className = 'waves-effect waves-dark btn next-step'
+      new_btn.className = 'waves-effect waves-dark btn next-step disabled'
       new_btn.innerHTML = '下一天'
       new_step_actions.appendChild(new_btn)
 
@@ -115,7 +115,7 @@ function handleMenuData(menu) {
     } else {
       const new_btn = document.createElement('a')
       new_btn.href = '#modal2'
-      new_btn.className = 'waves-effect waves-dark btn modal-trigger'
+      new_btn.className = 'waves-effect waves-dark btn modal-trigger disabled'
       new_btn.innerHTML = '提交'
       new_step_actions.appendChild(new_btn)
 
@@ -247,6 +247,9 @@ function cardEventListener() {
     )
     for (let j = 0; j < cards.length; j++) {
       cards[j].addEventListener('click', (e) => {
+        cards[j].parentElement.nextSibling
+          .querySelector('.waves-effect.waves-dark.btn')
+          .classList.remove('disabled')
         // unselect all other cards in same row
         for (let k = 0; k < cards.length; k++) {
           if (k !== j) {
