@@ -1,11 +1,206 @@
 var modals = document.querySelectorAll('.modal')
 
+var api_url = 'http://localhost:8080/api/v1'
+var menu_data = {
+  '2020-09-21': [
+    {
+      id: 70,
+      name: '照燒青梅豬排堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20200521_084514_074.jpg',
+    },
+    {
+      id: 71,
+      name: '咕咕雞堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160818_165859_023.jpg',
+    },
+    {
+      id: 72,
+      name: '雞肉三明治',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175446_097.jpg',
+    },
+    {
+      id: 73,
+      name: '摩斯熱狗堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175213_070.jpg',
+    },
+    {
+      id: 74,
+      name: '蕃茄吉士蛋堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_173743_050.jpg',
+    },
+    {
+      id: 75,
+      name: '黃金炸蝦堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20171228_211010_022.jpg',
+    },
+  ],
+  '2020-09-22': [
+    {
+      id: 76,
+      name: '照燒青梅豬排堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20200521_084514_074.jpg',
+    },
+    {
+      id: 77,
+      name: '咕咕雞堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160818_165859_023.jpg',
+    },
+    {
+      id: 78,
+      name: '雞肉三明治',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175446_097.jpg',
+    },
+    {
+      id: 79,
+      name: '摩斯熱狗堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175213_070.jpg',
+    },
+    {
+      id: 80,
+      name: '蕃茄吉士蛋堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_173743_050.jpg',
+    },
+    {
+      id: 81,
+      name: '黃金炸蝦堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20171228_211010_022.jpg',
+    },
+  ],
+  '2020-09-23': [
+    {
+      id: 82,
+      name: '照燒青梅豬排堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20200521_084514_074.jpg',
+    },
+    {
+      id: 83,
+      name: '咕咕雞堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160818_165859_023.jpg',
+    },
+    {
+      id: 84,
+      name: '雞肉三明治',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175446_097.jpg',
+    },
+    {
+      id: 85,
+      name: '摩斯熱狗堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175213_070.jpg',
+    },
+    {
+      id: 86,
+      name: '蕃茄吉士蛋堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_173743_050.jpg',
+    },
+    {
+      id: 87,
+      name: '黃金炸蝦堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20171228_211010_022.jpg',
+    },
+  ],
+  '2020-09-24': [
+    {
+      id: 88,
+      name: '照燒青梅豬排堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20200521_084514_074.jpg',
+    },
+    {
+      id: 89,
+      name: '咕咕雞堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160818_165859_023.jpg',
+    },
+    {
+      id: 90,
+      name: '雞肉三明治',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175446_097.jpg',
+    },
+    {
+      id: 91,
+      name: '摩斯熱狗堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175213_070.jpg',
+    },
+    {
+      id: 92,
+      name: '蕃茄吉士蛋堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_173743_050.jpg',
+    },
+    {
+      id: 93,
+      name: '黃金炸蝦堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20171228_211010_022.jpg',
+    },
+  ],
+  '2020-09-25': [
+    {
+      id: 94,
+      name: '照燒青梅豬排堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20200521_084514_074.jpg',
+    },
+    {
+      id: 95,
+      name: '咕咕雞堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160818_165859_023.jpg',
+    },
+    {
+      id: 96,
+      name: '雞肉三明治',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175446_097.jpg',
+    },
+    {
+      id: 97,
+      name: '摩斯熱狗堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_175213_070.jpg',
+    },
+    {
+      id: 98,
+      name: '蕃茄吉士蛋堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20160203_173743_050.jpg',
+    },
+    {
+      id: 99,
+      name: '黃金炸蝦堡',
+      supplier: 'MOS BURBER',
+      picurl: 'http://www.mos.com.tw/upload/product/20171228_211010_022.jpg',
+    },
+  ],
+}
+
 window.onload = function () {
   M.AutoInit()
   // open modal to enter employee id
   M.Modal.getInstance(modals[2]).open()
 
   checkQueries()
+  fetchMenuData()
   eventListener()
 
   let stepper = document.querySelector('.stepper')
@@ -24,6 +219,20 @@ window.onload = function () {
     })
     .catch(function (error) {
       console.log(error)
+    })
+}
+
+function fetchMenuData() {
+  fetch(api_url)
+    .then((res) => {
+      return res.json()
+    })
+    .then((res) => {
+      console.log(res)
+      res = menu_data
+    })
+    .catch((err) => {
+      console.log(err)
     })
 }
 
@@ -143,7 +352,7 @@ function initializeApp() {
       .getProfile()
       .then(function (profile) {
         const text = profile.displayName + '，早安！'
-        // alert('userId = ' + profile.userId)
+        alert('userId = ' + profile.userId)
         document.getElementById('profile').textContent = text
       })
       .catch(function (error) {
