@@ -1,7 +1,8 @@
 var modals = document.querySelectorAll('.modal')
+var EID = ''
+var data = [0, 0, 0, 0, 0]
 
-var api_url =
-  'https://7baf46d5ba50.ap.ngrok.io/api/v1/foods?start=2020-09-21&end=2020-09-25'
+var api_url = 'https://7baf46d5ba50.ap.ngrok.io'
 
 window.onload = function () {
   M.AutoInit()
@@ -26,7 +27,7 @@ window.onload = function () {
 }
 
 function fetchMenuData() {
-  fetch(api_url)
+  fetch(api_url + '/api/v1/foods?start=2020-09-21&end=2020-09-25')
     .then((res) => {
       return res.json()
     })
@@ -159,7 +160,6 @@ function checkEmployeeListener() {
   document.getElementById('eid').addEventListener('input', function (e) {
     // check employee identity
     if (authenticate(e.target.value)) {
-      console.log(e.target.value)
       document.getElementById('eid').classList.remove('invalid')
       document.getElementById('eid').classList.add('valid')
       if (liff.isLoggedIn()) {
@@ -176,12 +176,32 @@ function checkEmployeeListener() {
     .getElementById('checkEidSubmit')
     .addEventListener('click', function () {
       // check employee identity
+      EID = document.getElementById('eid').value
+      // POST eid and luid
+      post_data = {
+        emp_id: EID,
+        food_ids: data,
+      }
+      fetch(api_url + '/api/v1/order', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(post_data),
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log('Success:', data)
+        })
+        .catch((error) => {
+          console.error('Error:', error)
+        })
+
       M.Modal.getInstance(modals[2]).close()
     })
 }
 
 function cardEventListener() {
-  var data = [0, 0, 0, 0, 0]
   for (let i = 0; i < 5; i++) {
     const cards = document.querySelectorAll(
       '.step:nth-child(' + (i + 1) + ') .card'
