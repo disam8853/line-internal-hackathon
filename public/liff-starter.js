@@ -178,27 +178,29 @@ function checkEmployeeListener() {
       // check employee identity
       EID = document.getElementById('eid').value
       // POST eid and luid
-      post_data = {
-        emp_id: EID,
-        food_ids: data,
-      }
-      fetch(api_url + '/api/v1/order', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(post_data),
-      })
-        .then((res) => res.json())
-        .then((data) => {
-          console.log('Success:', data)
-        })
-        .catch((error) => {
-          console.error('Error:', error)
-        })
-
       M.Modal.getInstance(modals[2]).close()
     })
+
+  document.getElementById('submit').addEventListener('click', () => {
+    post_data = {
+      emp_id: EID,
+      food_ids: data,
+    }
+    fetch(api_url + '/api/v1/order', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(post_data),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log('Success:', data)
+      })
+      .catch((error) => {
+        console.error('Error:', error)
+      })
+  })
 }
 
 function cardEventListener() {
