@@ -315,7 +315,7 @@ function cardEventListener() {
  */
 function initializeLiffOrDie(myLiffId) {
   if (!myLiffId) {
-    window.alert('LIFF ID is not found')
+    console.log('LIFF ID is not found')
   } else {
     initializeLiff(myLiffId)
   }
@@ -335,7 +335,7 @@ function initializeLiff(myLiffId) {
       initializeApp()
     })
     .catch((err) => {
-      window.alert(err)
+      console.log(err)
     })
 }
 
@@ -355,13 +355,12 @@ function initializeApp() {
       .getProfile()
       .then(function (profile) {
         const text = profile.displayName + '，早安！'
-        // alert('userId = ' + profile.userId)
         console.log('userId = ' + profile.userId)
         LUID = profile.userId
         document.getElementById('profile').textContent = text
       })
       .catch(function (error) {
-        window.alert('Error getting profile: ' + error)
+        console.log('Error getting profile: ' + error)
       })
   } else {
     document.getElementById('loginBtn').classList.remove('hide')
@@ -384,13 +383,4 @@ function registerButtonHandlers() {
       liff.login()
     }
   })
-}
-
-/**
- * Alert the user if LIFF is opened in an external browser and unavailable buttons are tapped
- */
-function sendAlertIfNotInClient() {
-  alert(
-    'This button is unavailable as LIFF is currently being opened in an external browser.'
-  )
 }
