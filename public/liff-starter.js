@@ -8,7 +8,7 @@ var api_url = 'https://8a9a4fb15bb1.ap.ngrok.io'
 window.onload = function () {
   M.AutoInit()
   var instances = M.Modal.init(document.querySelector('#modal3'), {
-    dismissible: false,
+    dismissible: true,
   })
   // open modal to enter employee id
   instances.open()
@@ -267,6 +267,11 @@ function cardEventListener() {
           '#verify-tbody tr:nth-child(' + (i + 1) + ') td:nth-child(2)'
         )
         newCell.innerHTML = cards[j].querySelector('.card-content').innerHTML
+        // refresh aggree button
+        document.querySelectorAll('#modal2 .modal-footer a')[0].innerHTML =
+          '重新修改'
+        document.querySelectorAll('#modal2 .modal-footer a')[1].innerHTML =
+          '確認'
 
         // undisabled next-step button
         cards[j].parentElement.nextSibling
