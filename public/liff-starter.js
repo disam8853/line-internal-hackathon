@@ -48,9 +48,12 @@ function handleMenuData(menu) {
 
     const tbody = document.getElementById('verify-tbody')
     const newRow = tbody.insertRow(-1)
-    const newCell = newRow.insertCell(-1)
+    let newCell = newRow.insertCell(-1)
     const newText = document.createTextNode(day)
     newCell.appendChild(newText)
+
+    newCell = newRow.insertCell(-1)
+    newCell.appendChild(document.createTextNode('略過'))
 
     // console.log(d)
     const new_step_li = document.createElement('li')
@@ -255,6 +258,16 @@ function cardEventListener() {
     )
     for (let j = 0; j < cards.length; j++) {
       cards[j].addEventListener('click', (e) => {
+        // append to verify area
+        console.log(
+          document.querySelector('#verify-tbody tr:nth-child(' + (i + 1) + ')')
+        )
+        const newCell = document.querySelector(
+          '#verify-tbody tr:nth-child(' + (i + 1) + ') td:nth-child(2)'
+        )
+        // const newText = document.createTextNode(day)
+        newCell.innerHTML = cards[j].querySelector('.card-content').innerHTML
+
         // undisabled next-step button
         cards[j].parentElement.nextSibling
           .querySelector('.waves-effect.waves-dark.btn')
