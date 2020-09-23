@@ -150,7 +150,14 @@ function handleMenuData(menu) {
   let stepper = document.querySelector('.stepper')
   let stepperInstace = new MStepper(stepper)
   cardEventListener()
-  M.Modal.init(document.querySelector('#modal2'))
+  M.Modal.init(document.querySelector('#modal2'), {
+    onOpenStart: () => {
+      // refresh aggree button
+      const as = document.querySelectorAll('#modal2 .modal-footer a')
+      as[0].innerHTML = '重新修改'
+      as[1].innerHTML = '確認'
+    },
+  })
 }
 
 function checkQueries() {
