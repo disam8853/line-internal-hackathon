@@ -153,15 +153,15 @@ function handleMenuData(menu) {
   M.Modal.init(document.querySelector('#modal2'), {
     onOpenEnd: () => {
       // refresh aggree button
-      const as = document.querySelectorAll('#modal2 .modal-footer a')
-      as[0].classList.add('waves-effect')
-      as[1].classList.add('waves-effect')
+      // const as = document.querySelectorAll('#modal2 .modal-footer a')
+      // as[0].classList.add('waves-effect')
+      // as[1].classList.add('waves-effect')
     },
     onCloseEnd: () => {
       // refresh aggree button
-      const as = document.querySelectorAll('#modal2 .modal-footer a')
-      as[0].classList.remove('waves-effect')
-      as[1].classList.remove('waves-effect')
+      // const as = document.querySelectorAll('#modal2 .modal-footer a')
+      // as[0].classList.remove('waves-effect')
+      // as[1].classList.remove('waves-effect')
     },
   })
 }
