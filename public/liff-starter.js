@@ -360,7 +360,7 @@ function initializeApp() {
     liff
       .getProfile()
       .then(function (profile) {
-        const text = profile.displayName + '，早安！'
+        const text = profile.displayName + '，下週您想來點...'
         console.log('userId = ' + profile.userId)
         LUID = profile.userId
         document.getElementById('profile').textContent = text
