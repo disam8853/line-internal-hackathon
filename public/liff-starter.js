@@ -289,6 +289,8 @@ function cardEventListener() {
       '.step:nth-child(' + (i + 1) + ') .skip'
     )[0]
     skip_btn.addEventListener('click', (e) => {
+      // set data
+      data[i] = 0
       const cards = e.target.parentElement.previousSibling.getElementsByClassName(
         'card'
       )
