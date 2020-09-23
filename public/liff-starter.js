@@ -151,7 +151,7 @@ function handleMenuData(menu) {
   let stepperInstace = new MStepper(stepper)
   cardEventListener()
   M.Modal.init(document.querySelector('#modal2'), {
-    onOpenStart: () => {
+    onOpenEnd: () => {
       // refresh aggree button
       const as = document.querySelectorAll('#modal2 .modal-footer a')
       as[0].innerHTML = '重新修改'
