@@ -120,7 +120,7 @@ function handleMenuData(menu) {
 
       const new_skip_btn = document.createElement('button')
       new_skip_btn.className =
-        'waves-effect waves-dark btn-flat next-step grey lighten-3'
+        'waves-effect waves-dark btn-flat next-step grey lighten-3 skip'
       new_skip_btn.innerHTML = '略過'
       new_step_actions.appendChild(new_skip_btn)
     } else {
@@ -133,7 +133,7 @@ function handleMenuData(menu) {
       const new_skip_btn = document.createElement('a')
       new_skip_btn.href = '#modal2'
       new_skip_btn.className =
-        'waves-effect waves-dark btn-flat modal-trigger grey lighten-3'
+        'waves-effect waves-dark btn-flat modal-trigger grey lighten-3 skip'
       new_skip_btn.innerHTML = '略過並提交'
       new_step_actions.appendChild(new_skip_btn)
     }
@@ -259,13 +259,9 @@ function cardEventListener() {
     for (let j = 0; j < cards.length; j++) {
       cards[j].addEventListener('click', (e) => {
         // append to verify area
-        console.log(
-          document.querySelector('#verify-tbody tr:nth-child(' + (i + 1) + ')')
-        )
         const newCell = document.querySelector(
           '#verify-tbody tr:nth-child(' + (i + 1) + ') td:nth-child(2)'
         )
-        // const newText = document.createTextNode(day)
         newCell.innerHTML = cards[j].querySelector('.card-content').innerHTML
 
         // undisabled next-step button
@@ -284,6 +280,26 @@ function cardEventListener() {
         console.log(data)
       })
     }
+
+    const skip_btn = document.querySelectorAll(
+      '.step:nth-child(' + (i + 1) + ') .skip'
+    )[0]
+    skip_btn.addEventListener('click', (e) => {
+      const cards = e.target.parentElement.previousSibling.getElementsByClassName(
+        'card'
+      )
+      // unselect all other cards in same row
+      for (let k = 0; k < cards.length; k++) {
+        cards[k].classList.remove('select')
+      }
+      // disabled next step btn
+      e.target.previousSibling.classList.add('disabled')
+      // edit verify order table
+      const newCell = document.querySelector(
+        '#verify-tbody tr:nth-child(' + (i + 1) + ') td:nth-child(2)'
+      )
+      newCell.innerHTML = '略過'
+    })
   }
 }
 
