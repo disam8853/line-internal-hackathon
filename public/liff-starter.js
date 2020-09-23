@@ -1,7 +1,7 @@
 var modals = document.querySelectorAll('.modal')
 var EID = ''
 var LUID = ''
-var data = [1, 1, 1, 1, 1]
+var data = []
 
 var api_url = 'https://8a9a4fb15bb1.ap.ngrok.io'
 
@@ -47,6 +47,12 @@ function handleMenuData(menu) {
   date = Object.keys(menu)
 
   date.map((d, idx) => {
+    // append to order data
+    data.push({
+      food_id: 1,
+      date: d,
+    })
+
     const day = new Date(d).toDateString()
 
     const tbody = document.getElementById('verify-tbody')
@@ -168,7 +174,7 @@ function eventListener() {
   document.getElementById('submit').addEventListener('click', () => {
     const post_data = {
       emp_id: EID,
-      food_ids: data,
+      foods: data,
     }
     console.log(JSON.stringify(post_data))
     fetch(api_url + '/api/v1/order', {
@@ -280,7 +286,7 @@ function cardEventListener() {
         }
         // select target card
         cards[j].classList.add('select')
-        data[i] = parseInt(cards[j].getAttribute('data-id'))
+        data[i].food_id = parseInt(cards[j].getAttribute('data-id'))
         console.log(data)
       })
     }
@@ -290,7 +296,7 @@ function cardEventListener() {
     )[0]
     skip_btn.addEventListener('click', (e) => {
       // set data
-      data[i] = 1
+      data[i].food_id = 1
       const cards = e.target.parentElement.previousSibling.getElementsByClassName(
         'card'
       )
