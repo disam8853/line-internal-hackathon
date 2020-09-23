@@ -304,7 +304,7 @@ function cardEventListener() {
       const newCell = document.querySelector(
         '#verify-tbody tr:nth-child(' + (i + 1) + ') td:nth-child(2)'
       )
-      newCell.innerHTML = '略過'
+      newCell.innerHTML = '未點餐'
     })
   }
 }
