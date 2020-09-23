@@ -7,8 +7,11 @@ var api_url = 'https://8a9a4fb15bb1.ap.ngrok.io'
 
 window.onload = function () {
   M.AutoInit()
+  var instances = M.Modal.init(document.querySelector('#modal3'), {
+    dismissible: false,
+  })
   // open modal to enter employee id
-  M.Modal.getInstance(modals[2]).open()
+  instances.open()
 
   checkQueries()
   fetchMenuData()
@@ -147,6 +150,7 @@ function handleMenuData(menu) {
   let stepper = document.querySelector('.stepper')
   let stepperInstace = new MStepper(stepper)
   cardEventListener()
+  M.Modal.init(document.querySelector('#modal2'))
 }
 
 function checkQueries() {
