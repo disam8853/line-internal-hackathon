@@ -1,14 +1,14 @@
 var modals = document.querySelectorAll('.modal')
 var EID = ''
 var LUID = ''
-var data = [0, 0, 0, 0, 0]
+var data = [-1, -1, -1, -1, -1]
 
 var api_url = 'https://8a9a4fb15bb1.ap.ngrok.io'
 
 window.onload = function () {
   M.AutoInit()
   var instances = M.Modal.init(document.querySelector('#modal3'), {
-    dismissible: false,
+    dismissible: true,
   })
   // open modal to enter employee id
   instances.open()
@@ -150,20 +150,7 @@ function handleMenuData(menu) {
   let stepper = document.querySelector('.stepper')
   let stepperInstace = new MStepper(stepper)
   cardEventListener()
-  M.Modal.init(document.querySelector('#modal2'), {
-    onOpenEnd: () => {
-      // refresh aggree button
-      // const as = document.querySelectorAll('#modal2 .modal-footer a')
-      // as[0].classList.add('waves-effect')
-      // as[1].classList.add('waves-effect')
-    },
-    onCloseEnd: () => {
-      // refresh aggree button
-      // const as = document.querySelectorAll('#modal2 .modal-footer a')
-      // as[0].classList.remove('waves-effect')
-      // as[1].classList.remove('waves-effect')
-    },
-  })
+  // M.Modal.init(document.querySelector('#modal2'))
 }
 
 function checkQueries() {
@@ -181,7 +168,7 @@ function eventListener() {
   document.getElementById('submit').addEventListener('click', () => {
     const post_data = {
       emp_id: EID,
-      food_ids: data.filter((e) => e !== 0),
+      food_ids: data,
     }
     console.log(JSON.stringify(post_data))
     fetch(api_url + '/api/v1/order', {
@@ -303,7 +290,7 @@ function cardEventListener() {
     )[0]
     skip_btn.addEventListener('click', (e) => {
       // set data
-      data[i] = 0
+      data[i] = -1
       const cards = e.target.parentElement.previousSibling.getElementsByClassName(
         'card'
       )
