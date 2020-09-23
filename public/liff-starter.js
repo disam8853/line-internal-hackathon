@@ -1,7 +1,7 @@
 var modals = document.querySelectorAll('.modal')
 var EID = ''
 var LUID = ''
-var data = [-1, -1, -1, -1, -1]
+var data = [1, 1, 1, 1, 1]
 
 var api_url = 'https://8a9a4fb15bb1.ap.ngrok.io'
 
@@ -290,7 +290,7 @@ function cardEventListener() {
     )[0]
     skip_btn.addEventListener('click', (e) => {
       // set data
-      data[i] = -1
+      data[i] = 1
       const cards = e.target.parentElement.previousSibling.getElementsByClassName(
         'card'
       )
