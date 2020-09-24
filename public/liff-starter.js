@@ -281,7 +281,7 @@ function cardEventListener() {
         const newCell = document.querySelector(
           '#verify-tbody tr:nth-child(' + (i + 1) + ') td:nth-child(2)'
         )
-        newCell.innerHTML = cards[j].querySelector('.card-content').innerHTML
+        newCell.innerHTML = cards[j].querySelector('.card-content p').innerHTML
 
         // undisabled next-step button
         cards[j].parentElement.nextSibling
