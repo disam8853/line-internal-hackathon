@@ -118,7 +118,7 @@ ul.stepper .step:not(:last-of-type).active {
   background-color: #616161 !important;
 }
 
-#modal2 {
+.modal {
   max-height: 80% !important;
 }
 
