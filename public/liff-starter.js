@@ -7,8 +7,8 @@ var api_url = 'https://8a9a4fb15bb1.ap.ngrok.io'
 
 window.onload = function () {
   M.AutoInit()
-  var instances = M.Modal.init(document.querySelector('#modal3'), {
-    dismissible: false,
+  let instances = M.Modal.init(document.querySelector('#modal3'), {
+    dismissible: true,
   })
   // open modal to enter employee id
   instances.open()
@@ -163,8 +163,17 @@ function checkQueries() {
   const url = new URL(window.location.href)
   const qu = url.searchParams.get('qu')
   if (qu === 'true') {
-    const instances = M.Modal.getInstance(modals[0])
+    let instances = M.Modal.init(document.querySelector('#modal1'), {
+      dismissible: false,
+    })
     instances.open()
+    M.Modal.getInstance(modals[2]).close()
+    document.getElementById('submitQuestion').addEventListener('click', () => {
+      window.location.href = '/'
+      liff.closeWindow()
+    })
+  } else {
+    M.Modal.init(document.querySelector('#modal1'))
   }
 }
 
