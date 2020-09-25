@@ -362,6 +362,7 @@ function initializeApp() {
 
   if (!liff.isInClient() && !liff.isLoggedIn()) {
     document.getElementById('lineLogin').classList.remove('hide')
+    liff.login()
   }
   if (liff.isLoggedIn()) {
     // check if the user is logged in/out, and disable inappropriate button
@@ -379,6 +380,7 @@ function initializeApp() {
       })
   } else {
     document.getElementById('loginBtn').classList.remove('hide')
+    liff.login()
   }
 }
 
