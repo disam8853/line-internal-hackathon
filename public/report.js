@@ -103,10 +103,4 @@ function registerButtonHandlers() {
       liff.login()
     }
   })
-  // login call, only when external browser is used
-  document.getElementById('loginBtn').addEventListener('click', function () {
-    if (!liff.isLoggedIn()) {
-      liff.login()
-    }
-  })
 }
