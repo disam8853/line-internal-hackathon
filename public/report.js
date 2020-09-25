@@ -63,7 +63,8 @@ function initializeApp() {
 
   if (!liff.isInClient() && !liff.isLoggedIn()) {
     liff.login({
-      redirectUri: 'https://line-hackathon-liff.herokuapp.com/report',
+      redirectUri:
+        'https://line-hackathon-liff.herokuapp.com/?liff.state=report',
     })
   }
   if (liff.isLoggedIn()) {
@@ -82,7 +83,8 @@ function initializeApp() {
       })
   } else {
     liff.login({
-      redirectUri: 'https://line-hackathon-liff.herokuapp.com/report',
+      redirectUri:
+        'https://line-hackathon-liff.herokuapp.com/?liff.state=report',
     })
   }
 }
