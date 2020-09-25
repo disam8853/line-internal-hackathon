@@ -186,7 +186,7 @@ function eventListener() {
       foods: data,
     }
     console.log(JSON.stringify(post_data))
-    fetch(api_url + '/api/v1/order', {
+    fetch(api_url + '/api/v1/orders', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',

@@ -94,9 +94,15 @@ function registerButtonHandlers() {
       if (liff.isInClient()) {
         liff.closeWindow()
       } else {
-        alert()
+        alert('我們已收到您的問題回報！')
       }
     })
+  // login call, only when external browser is used
+  document.getElementById('loginBtn').addEventListener('click', function () {
+    if (!liff.isLoggedIn()) {
+      liff.login()
+    }
+  })
   // login call, only when external browser is used
   document.getElementById('loginBtn').addEventListener('click', function () {
     if (!liff.isLoggedIn()) {
