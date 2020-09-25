@@ -62,9 +62,7 @@ function initializeApp() {
   registerButtonHandlers()
 
   if (!liff.isInClient() && !liff.isLoggedIn()) {
-    liff.login({
-      redirectUri: window.location.href,
-    })
+    document.getElementById('loginBtn').classList.remove('hide')
   }
   if (liff.isLoggedIn()) {
     // check if the user is logged in/out, and disable inappropriate button
@@ -81,9 +79,7 @@ function initializeApp() {
         console.log('Error getting profile: ' + error)
       })
   } else {
-    liff.login({
-      redirectUri: window.location.href,
-    })
+    document.getElementById('loginBtn').classList.remove('hide')
   }
 }
 
@@ -96,9 +92,16 @@ function registerButtonHandlers() {
     .getElementById('submitQuestion')
     .addEventListener('click', function () {
       if (liff.isInClient()) {
+        alert('我們已收到您的問題回報！')
         liff.closeWindow()
       } else {
         alert('我們已收到您的問題回報！')
       }
     })
+  // login call, only when external browser is used
+  document.getElementById('loginBtn').addEventListener('click', function () {
+    if (!liff.isLoggedIn()) {
+      liff.login()
+    }
+  })
 }
