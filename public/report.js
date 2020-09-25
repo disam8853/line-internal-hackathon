@@ -62,7 +62,7 @@ function initializeApp() {
   registerButtonHandlers()
 
   if (!liff.isInClient() && !liff.isLoggedIn()) {
-    document.getElementById('lineLogin').classList.remove('hide')
+    document.getElementById('loginBtn').classList.remove('hide')
   }
   if (liff.isLoggedIn()) {
     // check if the user is logged in/out, and disable inappropriate button
