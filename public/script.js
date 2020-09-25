@@ -204,11 +204,7 @@ function eventListener() {
 }
 
 function authenticate(eid) {
-  if (eid.length === 7 && eid.startsWith('LW') && !isNaN(eid.substring(2))) {
-    return true
-  } else {
-    return false
-  }
+  return eid.length === 7 && eid.startsWith('LW') && !isNaN(eid.substring(2))
 }
 
 function checkEmployeeListener() {
