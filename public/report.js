@@ -3,7 +3,7 @@ var EID = ''
 var LUID = ''
 var data = []
 
-var api_url = 'https://8a9a4fb15bb1.ap.ngrok.io'
+var api_url = 'https://223d4f229adf.ap.ngrok.io'
 
 window.onload = function () {
   M.AutoInit()
