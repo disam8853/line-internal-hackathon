@@ -15,8 +15,9 @@ app.get('/send-id', function (req, res) {
 app.get('/', (req, res) => {
   if (req.query['liff.state']) {
     res.sendFile(express.static('public/redirect.html'))
+  } else {
+    res.sendFile(express.static('public/index.html'))
   }
-  res.sendFile(express.static('public/index.html'))
 })
 app.use('/report', express.static('public/report.html'))
 
