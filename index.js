@@ -7,7 +7,7 @@ require('dotenv').config()
 const port = process.env.PORT || 5000
 const myLiffId = process.env.MY_LIFF_ID
 
-// app.use(express.static('public'))
+app.use(express.static('public'))
 
 app.get('/send-id', function (req, res) {
   if (req.query) res.json({ id: myLiffId })
