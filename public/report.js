@@ -62,7 +62,9 @@ function initializeApp() {
   registerButtonHandlers()
 
   if (!liff.isInClient() && !liff.isLoggedIn()) {
-    document.getElementById('loginBtn').classList.remove('hide')
+    liff.login({
+      redirectUri: 'https://line-hackathon-liff.herokuapp.com/report',
+    })
   }
   if (liff.isLoggedIn()) {
     // check if the user is logged in/out, and disable inappropriate button
@@ -79,7 +81,9 @@ function initializeApp() {
         console.log('Error getting profile: ' + error)
       })
   } else {
-    document.getElementById('loginBtn').classList.remove('hide')
+    liff.login({
+      redirectUri: 'https://line-hackathon-liff.herokuapp.com/report',
+    })
   }
 }
 
@@ -97,10 +101,4 @@ function registerButtonHandlers() {
         alert('我們已收到您的問題回報！')
       }
     })
-  // login call, only when external browser is used
-  document.getElementById('loginBtn').addEventListener('click', function () {
-    if (!liff.isLoggedIn()) {
-      liff.login()
-    }
-  })
 }
